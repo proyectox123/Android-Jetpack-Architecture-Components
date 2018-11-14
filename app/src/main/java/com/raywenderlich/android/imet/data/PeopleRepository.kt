@@ -71,4 +71,8 @@ class PeopleRepository(application: Application) {
     return peoples
   }
 
+  fun findPeople(name: String): LiveData<List<People>>{
+    return peopleDao.findBy(name)
+  }
+
 }

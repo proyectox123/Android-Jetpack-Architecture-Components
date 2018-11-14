@@ -34,6 +34,7 @@
 package com.raywenderlich.android.imet.ui.list
 
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -55,10 +56,13 @@ class PeoplesListFragment : Fragment(),
     SearchView.OnCloseListener {
 
   private lateinit var searchView: SearchView
+  private lateinit var viewModel: PeoplesListViewModel
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setHasOptionsMenu(true)
+
+    viewModel = ViewModelProviders.of(this).get(PeoplesListViewModel::class.java)
   }
 
   override fun onResume() {
@@ -97,6 +101,12 @@ class PeoplesListFragment : Fragment(),
       val addPeopleIntent = Intent(context, AddPeopleActivity::class.java)
       startActivity(addPeopleIntent)
     }
+
+    viewModel.getPeopleList().observe(this, Observer<List<People>> { peoples ->
+      peoples?.let {
+        populatePeopleList(peoples)
+      }
+    })
   }
 
   /**

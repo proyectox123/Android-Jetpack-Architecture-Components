@@ -40,7 +40,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.raywenderlich.android.imet.IMetApp
 import com.raywenderlich.android.imet.R
 import com.raywenderlich.android.imet.data.model.People
 import kotlinx.android.synthetic.main.fragment_people_details.*
@@ -66,7 +65,7 @@ class PeopleDetailsFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
 
     // Find people with provided id
-    val peopleId = activity?.intent?.getIntExtra(getString(R.string.people_id), 0)
+    val peopleId = arguments?.getInt(getString(R.string.people_id))
     peopleId?.let {
       viewModel.getPeopleDetails(peopleId).observe(this, Observer { peopleDetails ->
           populatePeopleDetails(peopleDetails)

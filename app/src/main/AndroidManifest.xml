@@ -17,10 +17,6 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity
-      android:name=".ui.details.PeopleDetailsActivity"
-      android:label="@string/people_details"
-      android:parentActivityName=".ui.MainActivity" />
   </application>
 
 </manifest>

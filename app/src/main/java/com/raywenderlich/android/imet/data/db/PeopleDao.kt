@@ -20,7 +20,7 @@ interface PeopleDao {
     fun deleteAll()
 
     @Query("SELECT * FROM People WHERE id = :id")
-    fun find(id: Int): People
+    fun find(id: Int): LiveData<People>
 
     @Query("SELECT * FROM People WHERE name LIKE '%' || :name || '%'")
     fun findBy(name: String): LiveData<List<People>>

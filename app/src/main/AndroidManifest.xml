@@ -21,10 +21,6 @@
       android:name=".ui.details.PeopleDetailsActivity"
       android:label="@string/people_details"
       android:parentActivityName=".ui.MainActivity" />
-    <activity
-      android:name=".ui.add.AddPeopleActivity"
-      android:label="@string/add_people"
-      android:parentActivityName=".ui.MainActivity" />
   </application>
 
 </manifest>

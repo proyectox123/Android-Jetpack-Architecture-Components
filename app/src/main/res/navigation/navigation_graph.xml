@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/peoplesListFragment">
 
     <fragment
         android:id="@+id/peoplesListFragment"
         android:name="com.raywenderlich.android.imet.ui.list.PeoplesListFragment"
-        android:label="PeoplesListFragment" />
+        android:label="PeoplesListFragment"
+        tools:layout="@layout/fragment_peoples_list">
+        <action
+            android:id="@+id/action_peoplesListFragment_to_addPeopleFragment"
+            app:destination="@id/addPeopleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPeopleFragment"
+        android:name="com.raywenderlich.android.imet.ui.add.AddPeopleFragment"
+        android:label="AddPeopleFragment"
+        tools:layout="@layout/fragment_add_people"/>
 </navigation>
